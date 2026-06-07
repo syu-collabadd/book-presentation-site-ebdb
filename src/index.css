@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0f0e0c;
+  --color-ink-subtle: #1c1a17;
+  --color-ink-muted: #2a2722;
+  --color-paper: #faf7f2;
+  --color-paper-warm: #f2ece0;
+  --color-amber: #c8922a;
+  --color-amber-light: #e0aa45;
+  --color-amber-dim: #7a5618;
+  --color-text-primary: #e8e0d4;
+  --color-text-secondary: #9a9285;
+  --color-text-tertiary: #6b6258;
+  --color-border: #2e2b26;
+  --color-border-light: #3d3a34;
+
+  --font-serif: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+  --font-sans: 'Inter', 'system-ui', sans-serif;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0f0e0c;
+  color: #e8e0d4;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out both;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+.prose-reading {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: #e8e0d4;
+}
+
+.prose-reading p {
+  margin-bottom: 1.5em;
+}
+
+.prose-reading p + p {
+  text-indent: 1.5em;
+}
+
+.prose-reading p:first-child::first-letter {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3.8em;
+  line-height: 0.82;
+  float: left;
+  margin-right: 0.07em;
+  margin-top: 0.06em;
+  color: #c8922a;
+  font-weight: 700;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0f0e0c; }
+::-webkit-scrollbar-thumb { background: #2e2b26; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #6b6258; }
+
+/* Selection */
+::selection {
+  background: #7a5618;
+  color: #faf7f2;
+}
+
+/* Smooth reveal animation on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
